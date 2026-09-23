@@ -1,0 +1,5 @@
+# Local secrets (RAPIDAPI_KEY) - never commit
+.env
+.env.*
+!.env.example
+.vercel

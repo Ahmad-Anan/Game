@@ -16,15 +16,8 @@ export class Details {
       const loading = document.querySelector(".loading");
       loading.classList.remove("d-none");
 
-      const options = {
-         method: "GET",
-         headers: {
-            "X-RapidAPI-Key": "761b8a3226msh868f0d927cb6ea4p117ef0jsn46d63d281712",
-            "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
-         },
-      };
-
-      fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${idGames}`, options)
+      // Goes through /api/games (api/games.js) so the RapidAPI key stays on the server.
+      fetch(`/api/games?id=${encodeURIComponent(idGames)}`)
          .then((response) => response.json())
          .then((response) => this.ui.displayDetails(response))
          .catch((err) => console.error(err))
